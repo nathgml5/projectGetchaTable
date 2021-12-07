@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hago.getcha.restaurant.dao.IRestInfoDAO">
+	<resultMap type="com.hago.getchaTable.restaurant.dto.RestaurantDTO" id="restaurant">
+		<result property="restNum" column="restNum"/>
+		<result property="restName" column="restName"/>
+		<result property="restIntro" column="restIntro"/>
+		<result property="avgPoint" column="avgPoint"/>
+		<result property="address" column="address"/>
+		<result property="dong" column="dong"/>
+		<result property="type" column="type"/>
+		<result property="capacity" column="capacity"/>
+		<result property="promotion" column="promotion"/>
+		<result property="representImage" column="representImage"/>
+		<result property="registerDate" column="registerDate"/>
+	</resultMap>
+	<select id="selectRestaurant"  resultMap="restaurant" parameterType="java.lang.Integer">
+		select * from restaurant where restnum=#{restNum}
+	</select>
+
+	<select id="restTypeList"  resultMap="restaurant" parameterType="String">
+		select * from restaurant where type=#{type} order by avgpoint desc
+	</select>
+
+	<select id="restTypeEtcList"  resultMap="restaurant" parameterType="String">
+		select * from restaurant where type!='한식' AND type!='프랑스음식'AND type!='이탈리아음식' AND type!='일식' order by avgpoint desc
+	</select>
+	
+	<select id="restLocationList"  resultMap="restaurant" parameterType="String">
+		select * from restaurant where dong=#{type} order by avgpoint desc 
+	</select>
+	
+	<select id="restLocationEtcList"  resultMap="restaurant" parameterType="String">
+		select * from restaurant where dong!='신사동' AND dong!='한남동'AND dong!='여의도동' AND dong!='청담동' order by avgpoint desc 
+	</select>
+	
+	<resultMap type="com.hago.getchaTable.restaurant.dto.OpenHourDTO" id="openHour">
+		<result property="restNum" column="restNum"/>
+		<result property="weekSelection" column="weekSelection"/>
+		<result property="daySelection" column="daySelection"/>
+		<result property="hours" column="hours"/>
+	</resultMap>
+	<select id="selectOpenHour"  resultMap="openHour" parameterType="java.lang.Integer">
+		select * from openhour where restnum=#{restNum}
+	</select>
+	
+	<resultMap type="com.hago.getchaTable.restaurant.dto.FacilitiesDTO" id="facilities">
+		<result property="restNum" column="restNum"/>
+		<result property="facility" column="facility"/>
+	</resultMap>
+	<select id="selectFacilities"  resultMap="facilities" parameterType="java.lang.Integer">
+		select * from facilities where restnum=#{restNum}
+	</select>
+	
+	<resultMap type="com.hago.getchaTable.restaurant.dto.RestImageDTO" id="restImage">
+		<result property="restNum" column="restNum"/>
+		<result property="restImage" column="restImage"/>
+	</resultMap>
+	<select id="selectRestImage"  resultMap="restImage" parameterType="java.lang.Integer">
+		select * from restimage where restnum=#{restNum}
+	</select>
+	
+	<resultMap type="com.hago.getchaTable.restaurant.dto.MenuDTO" id="menu">
+		<result property="restNum" column="restNum"/>
+		<result property="category" column="category"/>
+		<result property="menuName" column="menuName"/>
+		<result property="unitPrice" column="unitPrice"/>
+		<result property="menuImage" column="menuImage"/>
+	</resultMap>
+	<select id="selectMenu"  resultMap="menu" parameterType="java.lang.Integer">
+		select * from specialMenu where restnum=#{restNum} order by category
+	</select>
+	
+	<resultMap type="com.hago.getchaTable.restaurant.dto.WholeMenuDTO" id="wholeMenu">
+		<result property="restNum" column="restNum"/>
+		<result property="wholeMenu" column="wholeMenu"/>
+	</resultMap>
+	<select id="selectWholeMenu"  resultMap="wholeMenu" parameterType="java.lang.Integer">
+		select * from wholemenu where restnum=#{restNum}
+	</select>
+	
+	<!-- <select id="searchProc"  resultType="com.hago.getchaTable.restaurant.dto.RestSumDTO">
+		SELECT restnum, restname, avgpoint, type, dong, restintro, representimage FROM(
+    		SELECT A.* FROM(
+				SELECT restaurant.* , specialmenu.menuname
+				FROM restaurant, specialMenu
+				WHERE restaurant.restnum = specialMenu.restnum (+)
+				ORDER BY avgpoint DESC
+     			 )A
+   		 WHERE restName LIKE '%'||#{keyword}||'%' OR menuname LIKE '%'||#{keyword}||'%' OR dong LIKE '%'||#{keyword}||'%' OR address LIKE '%'||#{keyword}||'%'
+    	)B 
+  		GROUP BY restnum, restname, avgpoint, type, dong, restintro, representimage
+	</select> -->
+	
+</mapper>

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+	#CollectionPage_Container { width: 900px; margin: auto; }
+	
+	#PageTitle {margin: 15px; text-align: center;}
+	
+	.container_Row { height: 200px; width: 100%; margin: 5px ,0px; }
+	
+	.rest_summary {border-spacing: 10px;}
+	
+	tr {height: 40px;}
+	
+	.representImg_wrap { height: 130px; width: 120px; overflow: hidden; border-radius : 20px; margin-right: 10px;}
+    
+    span img {margin-left: 3px;}
+    
+    .button_wrap {text-align: right;}
+    .calBtn {color:white; background-color:#343a40; border-color:#343a40; font-size:15px; border-radius:5px; padding:6px 12px; height:38px; width:58px;}
+    .calBtn:hover {background-color:black; border-color:black;}
+    
+    a {text-decoration: none; font-weight:bold;}
+    a:hover {text-decoration: underline;} 
+    
+    #sidebar{left:-250px;}
+      
+     
+
+	
+	

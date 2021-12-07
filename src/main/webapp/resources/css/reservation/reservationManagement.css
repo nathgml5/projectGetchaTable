@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+div.reserveTable, #seatedTable{
+	overflow: auto;
+	white-space: nowrap;
+}
+
+#dropbtn {
+  background-color: #8C8C8C;
+  color: white;
+  padding: 3px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  width:120px;
+}
+
+/* Dropdown button on hover & focus */
+#dropbtn:hover, #dropbtn:focus {
+  background-color: #A6A6A6;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:#D9D9D9;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a,.dropdown-content button{
+  color: black;
+  padding: 12px 16px;
+  background-color: #D9D9D9;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  border:1px solid #BFBFBF ;
+  width: 120px;
+} 
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover, .dropdown-content button:hover {background-color: #BFBFBF}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+th{
+	width: 50px; height: 60px;
+}
+
+td{ width:120px; height:50px;}
+
+.bn_time, .bn_date{
+	color:black;
+	font-size:20px;
+	font-weight: bold;
+}
+
+
+
+
+.collapsible {
+  cursor: pointer;
+}
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  font-size:12px;
+}

@@ -1,0 +1,127 @@
+@charset "UTF-8";
+* {box-sizing: border-box}
+
+body{
+	font-size:14px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #343642;
+  color: white;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  opacity: 0.8;
+  height: 40px;
+  	
+}
+div.clearfix{
+	height: 40px;
+}
+button:hover {
+  opacity:1;
+}
+
+/* Float cancel and add buttons and add an equal width */
+.cancelbtn, .addbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the add button */
+.addbtn {
+  background-color: #343642;
+}
+
+/* Add padding and center-align text to the container */
+.container {
+	height: 80%;
+  padding: 16px;
+  text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 30%;
+  top: 20%;
+  width: 50%; /* Full width */
+  height: 50%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #BCBCBC;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  height:80%
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and add button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .addbtn {
+    width: 100%;
+  }
+}
+
+.bluetop {
+  border-collapse: collapse;
+  border-top: 3px solid #313732;
+}  
+.bluetop th {
+  color: white;
+  background: #8C8C8C;
+}
+.bluetop th, .bluetop td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.bluetop th:first-child, .bluetop td:first-child {
+  border-left: 0;
+}
+.bluetop th:last-child, .bluetop td:last-child {
+  border-right: 0;
+}

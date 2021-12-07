@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hago.getchaTable.admin.dao.IAdminDAO">
+	<resultMap type="com.hago.getchaTable.admin.dto.ManagerDTO" id="manager">
+		<result property="restNum" column="restNum"/>
+		<result property="restId" column="restid"/>
+		<result property="restPw" column="restpw"/>
+		<result property="phone1" column="phone1"/>
+		<result property="phone2" column="phone2"/> 
+	</resultMap>
+	<select id="selectId"  resultMap="manager" parameterType="String">
+		select * from restManagers where restid=#{restId}
+	</select>
+	
+	
+	<resultMap type="com.hago.getchaTable.restaurant.dto.RestaurantDTO" id="restExtend">
+		<result property="restNum" column="restNum"/>
+		<result property="restId" column="restid"/>
+		<result property="restPw" column="restpw"/>
+		<result property="phone1" column="phone1"/>
+		<result property="phone2" column="phone2"/> 
+		<result property="restName" column="restName"/>
+		<result property="restIntro" column="restIntro"/>
+		<result property="avgPoint" column="avgPoint"/>
+		<result property="address" column="address"/>
+		<result property="dong" column="dong"/>
+		<result property="type" column="type"/>
+		<result property="capacity" column="capacity"/>
+		<result property="promotion" column="promotion"/>
+		<result property="representImage" column="representImage"/>
+		<result property="registerDate" column="registerDate"/>
+	</resultMap>
+	
+	
+	<select id="restList" resultMap="restExtend">		
+		SELECT A.restNum, A.restid, A.restpw, A.phone1, A.phone2, 
+		B.restName, B.restIntro, B.avgpoint, B.address, B.dong, B.type, B.capacity,
+		B.promotion, B.representImage, B.registerdate 
+		FROM restManagers A, restaurant B WHERE A.restNum=B.restnum order by registerdate desc
+	</select>
+
+	<insert id="addManager" parameterType="com.hago.getchaTable.admin.dto.ManagerDTO">
+		<selectKey keyProperty="restNum" resultType="int" order="BEFORE">
+			SELECT nvl(max(restNum),0)+1 FROM restManagers
+		</selectKey>
+		INSERT INTO restmanagers VALUES(#{restNum}, #{restId}, #{restPw}, #{phone1}, #{phone2})
+	</insert>
+	
+	<insert id="addRestNum" parameterType="String">
+		INSERT INTO restaurant(restnum) SELECT restnum from restmanagers where restId=#{restId} 
+	</insert>
+
+	<delete id="deleteManager" parameterType="java.lang.Integer">
+		delete from restManagers where restnum=#{restNum}
+	</delete>
+	
+	<delete id="deleteRestaurant" parameterType="java.lang.Integer">
+		delete from restaurant where restnum=#{restNum}
+	</delete>
+
+	<resultMap type="com.hago.getchaTable.admin.dto.AdditionDTO" id="addition">
+		<result property="restNum" column="restNum"/>
+		<result property="magazine" column="magazine"/>
+		<result property="guideBook" column="guidebook"/>
+	</resultMap>
+	<select id="guideBookList" resultMap="addition">
+		select * from additionInfo where guidebook is not null order by guidebook desc
+	</select>
+	<select id="selectRestNum" resultMap="addition" >
+		select * from additionInfo where restnum=#{param1} and guidebook=#{param2}
+	</select>
+	<insert id="addGuide">
+		insert into additionInfo(restnum, guideBook) values(#{param1}, #{param2})
+	</insert>
+</mapper>

@@ -1,0 +1,40 @@
+@charset "UTF-8";
+	section {width:1000px; margin:auto; box-shadow: 1px 1px 3px 1px #dadce0;}
+	header div {margin:auto;}
+	.restInfo {margin-left: 50px; padding:5px;}
+	#restTitle>ul {margin-right: 50px;}
+	#restTitle>ul>li:nth-child(+n+1) {float:right; list-style-type:none; padding-left:5px;}
+	#restTitle>ul>li::after {content: ''; display: block; clear: both;}
+	#booking_btn {float:right; margin-right: 60px;}
+	#share_btn {background-color: white; padding :0; border: 0; outline: none; height: 40px; width:40px;}
+	#collect_btn {background-color: white; padding :0; border: 0; outline: none; height: 40px; width:40px;}
+	#carouselExampleIndicators {height:450px; width:880px; margin-top: 10px;}
+	#carouselExampleFade {width: 450px; height: 350px; margin-bottom: 3px;}
+	.carousel-item img {height:100%; width:100%;}
+	.carousel-control-prev-icon-bg {url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{black}'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/></svg>");}
+	.carousel-control-next-icon-bg {url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill=#8C8C8C><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");}
+	
+	.cntReview img {width: 20px;} 
+	.cntCollection img {width: 20px;} 
+	.status_branch span {margin-right: 5px;}
+	.status_branch img {margin-right: 5px;}
+	#rest_detail {border-spacing: 10px; margin-left: 50px; margin-bottom: 30px;}
+	.facil_wrap div {margin-right: 5px;}
+	facil_wrap div {text-align:center;}
+	.promotion_section {margin-left: 50px;}
+	.menuSection {margin-left: 50px;}
+	.menuImg {height:250px; width: 300px; overflow:hidden; float:left; margin-right:3px;}
+	.menu_wrap::after {content: ''; display: block; clear: both;}
+	#reviewList {margin: 0px 50px 30px 50px; width: 100%; padding-right:10px; border-top: 2px solid; border-bottom: 2px solid;}
+	.cap {caption-side: top; text-align: right; font-size: 13px; color: #8C8C8C}
+	.emptyStr {text-align:center; font-size: 15px; color: #8C8C8C}
+	.review_image {height:100px; width:100px; overflow:hidden; border-radius : 20px; float:left; margin-right:5px;}
+	ul {list-style-type:none;}
+	ul li{float:left; margin-right:5px;}
+	.date_row {height:40px; margin:0;}
+	.date_row p {font-size: 15px; color: #CACACA; text-align: right; padding-right: 5px;} 
+	.line {margin:0; padding:0;}
+	a {text-decoration: none;} 
+    a:hover {text-decoration: underline;}
+    #sidebar{left:-250px;}
+   

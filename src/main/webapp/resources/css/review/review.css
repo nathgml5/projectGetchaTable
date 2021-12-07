@@ -1,0 +1,65 @@
+@charset "UTF-8";
+	#ReviewPage_Container {
+		width: 900px;
+		margin: auto;
+	}
+	
+	#PageTitle {margin: 15px; text-align: center;}
+	
+	.Review_Row{
+		margin: 5px ,0px;
+	}
+	
+	.title {
+		font-weight: bold, 700;
+		font-size: 18px;
+		padding: 10px;
+	}
+	
+	.title img{
+		float: right;
+		position: relative;
+		width: 20px;
+		padding: 3px;
+	}
+	
+	.contentBox {margin: 5px 10px;}
+	
+	.image_wrap div{
+		float: left; margin-bottom: 10px;
+	}
+	
+	.review_image{
+		height: 120px;
+		width: 120px;
+		overflow: hidden;
+		margin: 0px 10px 10px 0px;
+		border-radius : 20px;
+	}
+      
+    .date {
+    	color: #CACACA;
+    	text-align: right;
+    	padding-right: 10px;
+    } 
+      
+    .button_wrap {
+     	padding: 5px;
+      	text-align: right;
+    }
+
+    .modiBtn {color:white; background-color:#343a40; border-color:#343a40; font-size:15px; border-radius:5px; padding:6px 12px; height:38px; width:58px;}
+    .modiBtn:hover {background-color:black; border-color:black;}
+    .delBtn {color:white; background-color:#343a40; border-color:#343a40; font-size:15px; border-radius:5px; padding:6px 12px; height:38px; width:58px;}
+    .delBtn:hover {background-color:black; border-color:black;}
+    
+    a {font-weight:bold;}
+    a:hover {text-decoration: underline;} 
+    
+    #sidebar{left:-250px;}
+     
+      
+     
+
+	
+	

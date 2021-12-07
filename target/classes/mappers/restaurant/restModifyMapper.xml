@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hago.getcha.restManagement.dao.IRestModifyDAO">
+	<!-- 식당 기본 정보 수정 -->
+	<update id="modifyBasicInfo" parameterType="com.hago.getchaTable.restaurant.dto.RestaurantDTO">
+		UPDATE restaurant 
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="restName != ''">restname=#{restName},</if>
+			<if test="restIntro != ''">restintro=#{restIntro},</if>
+			<if test="type != ''">type=#{type},</if>
+		</trim>
+		WHERE restnum=#{restNum}
+	</update>
+	
+	<!-- 식당 사진 전체 삭제 -->
+	<delete id="deleteRestImage" parameterType="java.lang.Integer">
+		DELETE FROM restimage WHERE restnum=#{restNum}
+	</delete>
+	
+	<!-- 식당 상세 정보 수정 -->
+	<update id="modifyDetail" parameterType="com.hago.getchaTable.restaurant.dto.RestaurantDTO">
+		UPDATE restaurant 
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="zipcode != ''">zipcode=#{zipcode},</if>
+			<if test="address != ''">address=#{address},</if>
+			<if test="dong != ''">dong=#{dong},</if>
+			<if test="capacity != ''">capacity=#{capacity},</if>
+	
+		</trim>
+		WHERE restnum=#{restNum}
+	</update>
+	
+	
+	<!-- 식당 사진 전체 삭제 -->
+	<delete id="deleteFacilities" parameterType="java.lang.Integer">
+		DELETE FROM facilities WHERE restnum=#{restNum}
+	</delete>
+	
+	<!-- 영업시간 전체 삭제 -->
+	<delete id="deleteOpenHour" parameterType="java.lang.Integer">
+		DELETE FROM openhour WHERE restnum=#{restNum}
+	</delete>
+
+	<!-- 프로모션 파일명 수정 -->
+	<update id="modifyPromotion" parameterType="com.hago.getchaTable.restaurant.dto.RestaurantDTO">
+		UPDATE restaurant SET promotion=#{promotion} WHERE restnum=#{restNum} 
+	</update>
+	
+	
+	<!-- 메뉴판 전체 삭제 -->
+	<delete id="deleteWholeMenu" parameterType="java.lang.Integer">
+		DELETE FROM wholemenu WHERE restnum=#{restNum}
+	</delete>
+
+	<!-- 메뉴 전체 삭제 -->
+	<delete id="deleteMenu" parameterType="java.lang.Integer">
+		DELETE FROM specialmenu WHERE restnum=#{restNum}
+	</delete>
+
+	<!-- 평균 별점 수정 -->
+	<update id="updateAvgPoint">
+		UPDATE restaurant SET avgpoint = #{avgPoint} WHERE restnum= #{restNum} 
+	</update>
+</mapper>

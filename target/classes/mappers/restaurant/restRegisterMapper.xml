@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hago.getcha.restManagement.dao.IRestRegisterDAO">
+	<update id="addRestaurant" parameterType="com.hago.getchaTable.restaurant.dto.RestaurantDTO">
+		UPDATE restaurant SET restname=#{restName}, restintro=#{restIntro}, avgpoint='0', zipcode=#{zipcode}, 
+		address=#{address}, dong=#{dong}, type=#{type}, capacity=#{capacity}, promotion=#{promotion}, registerDate=sysdate 
+		WHERE restnum=#{restNum}
+	</update>
+	
+	<insert id="addFacilities" parameterType="com.hago.getchaTable.restaurant.dto.FacilitiesDTO">
+        INSERT INTO facilities VALUES (#{restNum}, #{facility})
+ 	</insert>
+ 	
+ 	<insert id="addOpenHour" parameterType="com.hago.getchaTable.restaurant.dto.OpenHourDTO">
+        INSERT INTO openhour VALUES (#{restNum}, #{weekSelection}, #{daySelection}, #{hours})
+ 	</insert>
+
+ 	<insert id="addRestImage" parameterType="com.hago.getchaTable.restaurant.dto.RestImageDTO">
+        INSERT INTO restimage VALUES (#{restNum}, #{restImage})
+ 	</insert>
+ 	
+ 	<insert id="addMenu" parameterType="com.hago.getchaTable.restaurant.dto.MenuDTO">
+        INSERT INTO specialmenu VALUES (#{restNum}, #{category}, #{menuName}, #{unitPrice}, #{menuImage})
+ 	</insert>
+ 	
+ 	<insert id="addWholeMenu" parameterType="com.hago.getchaTable.restaurant.dto.WholeMenuDTO">
+        INSERT INTO wholemenu(restnum, wholemenu) VALUES (#{restNum}, #{wholeMenu})
+ 	</insert>
+
+ 	<update id="addRepresentImage" parameterType="com.hago.getchaTable.restaurant.dto.RestImageDTO">
+        UPDATE restaurant SET representimage=#{restImage} WHERE restnum=#{restNum}
+ 	</update>
+</mapper>
