@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<link href="resources/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<script type="text/javascript" src="resources/js/bootstrap/bootstrap.bundle.js" ></script>
 <style>
 .page{ text-decoration:none; text-decoration:underline; color: black; }
@@ -11,15 +10,13 @@
 </style>	
 
 </head>
-
-
 	<c:if test="${empty sessionScope.adminId }">
 		<script>
 			alert('최고 관리자 로그인이 필요합니다.');
 			location.href='adminLogin';
 		</script>
 	</c:if> 
-<center>
+<body>
 <c:url var="root" value="/" />
 <c:if test="${!empty msg }">
 	<script>alert("${msg}");</script>
@@ -101,4 +98,4 @@ function deleteManager(btn){
 	</c:otherwise>
 </c:choose>
 
-</center>
+</body>

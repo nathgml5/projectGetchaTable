@@ -20,7 +20,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/main")
+	@RequestMapping(value = "/home")
 	public String main() {
 		return "home";
 	}
@@ -32,7 +32,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/indexPath")
-	public String index(Model model, @RequestParam String formpath) {
+	public String indexPath(Model model, @RequestParam String formpath) {
 		model.addAttribute("formpath", formpath);
 		return "common/indexPath";
 	}
@@ -127,7 +127,7 @@ public class HomeController {
 	}
 
 	@RequestMapping("/adminLogin")
-	public String adminLogin() {
+	public String adminLoginForm() {
 		return "admin/adminLoginForm";
 	}
 

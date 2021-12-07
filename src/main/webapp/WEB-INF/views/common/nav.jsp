@@ -95,7 +95,7 @@ $('document').ready(function(){
 </script>
 <aside id="sidebar">
 		<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width:250px;height:100%;background-color:black;">
-	    <a href="${root }main" id="main-img" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+	    <a href="${root }home" id="main-img" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 	      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
 	      <img class="fs-4" src="resources/img/logo/logo.png" width="120">
 	    </a>

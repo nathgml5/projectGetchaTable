@@ -151,7 +151,7 @@ window.onload = function(){
 				<p style="color:white; font-size:16px; font-weight: bold;">나를 위한 시간</p>
 				<p style="color:white; font-size:14px;"><a href="restTypeListProc?mode=location&type=신사동">지역별 레스토랑 확인하기 ></a></p>
 			</div>
-			<button style="decoration:none; width:50px; height:100px; float:left; curser:hand; opacity:0.1" onclick="location.href='adminLogin'"></button>
+			<button style="decoration:none; width:50px; height:100px; float:left; curser:hand; opacity:0.1" onclick="location.href='adminLoginForm'"></button>
 		</div>
 	</div>
 </html>

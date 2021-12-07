@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.hago.getcha.restaurant.dao.IRestInfoDAO">
+<mapper namespace="com.hago.getchaTable.restaurant.dao.IRestInfoDAO">
 	<resultMap type="com.hago.getchaTable.restaurant.dto.RestaurantDTO" id="restaurant">
 		<result property="restNum" column="restNum"/>
 		<result property="restName" column="restName"/>
@@ -81,7 +81,7 @@
 		select * from wholemenu where restnum=#{restNum}
 	</select>
 	
-	<!-- <select id="searchProc"  resultType="com.hago.getchaTable.restaurant.dto.RestSumDTO">
+	<select id="searchProc"  resultType="com.hago.getchaTable.restaurant.dto.RestSumDTO">
 		SELECT restnum, restname, avgpoint, type, dong, restintro, representimage FROM(
     		SELECT A.* FROM(
 				SELECT restaurant.* , specialmenu.menuname
@@ -92,6 +92,6 @@
    		 WHERE restName LIKE '%'||#{keyword}||'%' OR menuname LIKE '%'||#{keyword}||'%' OR dong LIKE '%'||#{keyword}||'%' OR address LIKE '%'||#{keyword}||'%'
     	)B 
   		GROUP BY restnum, restname, avgpoint, type, dong, restintro, representimage
-	</select> -->
+	</select>
 	
 </mapper>

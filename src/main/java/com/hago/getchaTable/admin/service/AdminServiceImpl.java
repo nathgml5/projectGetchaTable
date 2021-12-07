@@ -23,6 +23,7 @@ import com.hago.getchaTable.admin.dao.IAdminDAO;
 import com.hago.getchaTable.admin.dto.AdditionDTO;
 import com.hago.getchaTable.admin.dto.ManagerDTO;
 import com.hago.getchaTable.restaurant.dao.IRestInfoDAO;
+import com.hago.getchaTable.restaurant.dto.RestSumDTO;
 import com.hago.getchaTable.restaurant.dto.RestaurantDTO;
 
 
@@ -39,6 +40,18 @@ public class AdminServiceImpl implements IAdminService{
 	
 	final static Logger logger = LoggerFactory.getLogger(AdminServiceImpl.class);
 	
+	public String checkSession(Model model) {
+		if(session.getAttribute("adminId") != null) {
+			if(session.getAttribute("adminId").equals(adminId)) {
+				return "admin";
+			}else {
+				return "restManager";
+			}
+		}else {
+			return "loginForm";
+		}
+	}
+
 	@Override
 	public int adminLoginProc(Model model, String id, String pw) {		
 		//최고 관리자는 properties파일에 있는 값과 비교
@@ -180,19 +193,20 @@ public class AdminServiceImpl implements IAdminService{
 		
 	}
 
-//	public HashMap<String, Object> findRestaurant(HashMap<String, Object> map) {
-//		String key = (String)map.get("key");
-//		ArrayList<RestSumDTO> restList = infoDao.searchProc(key);
-//		if(restList.isEmpty()) {
-//			String resultMsg = "검색 결과가 없습니다.";
-//			map.put("resultMsg", resultMsg);
-//			return map;
-//		}else {
-//			map.put("restList", restList);	
-//			return map;
-//		}
-//	}
+	public HashMap<String, Object> findRestaurant(HashMap<String, Object> map) {
+		String key = (String)map.get("key");
+		ArrayList<RestSumDTO> restList = infoDao.searchProc(key);
+		if(restList.isEmpty()) {
+			String resultMsg = "검색 결과가 없습니다.";
+			map.put("resultMsg", resultMsg);
+			return map;
+		}else {
+			map.put("restList", restList);	
+			return map;
+		}
+	}
 
+	
 	
 
 	

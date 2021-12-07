@@ -18,6 +18,18 @@ public class AdminController {
 	@Autowired AdminServiceImpl adminService;
 	
 	
+	@RequestMapping(value="adminLoginForm")
+	public String adminLoginForm(Model model) {
+		String check = adminService.checkSession(model);
+		if(check.equals("admin")) {
+			return "forward:indexPath?formpath=managerList";
+		}else if(check.equals("restManager")) {
+			return "forward:indexPath?formpath=restMain";
+		}else {
+			return "forward:mainPath?formpath=adminLogin";
+		}
+	}
+	
 	@RequestMapping(value="adminLoginProc")
 	public String adminLoginProc(String adminId, String adminPw, Model model) {
 		int result = adminService.adminLoginProc(model, adminId, adminPw);
@@ -33,7 +45,7 @@ public class AdminController {
 	@RequestMapping(value="adminLogoutProc")
 	public String adminLogoutProc(Model model) {
 		adminService.adminLogoutProc(model);
-		return "redirect:main";
+		return "redirect:home";
 	}
 
 	@RequestMapping(value="managerListProc")
@@ -48,12 +60,12 @@ public class AdminController {
 		return adminService.isExistId(map);
 	}
 
-//	
-//	@RequestMapping(value = "findRestaurant", produces = "application/json;charset=utf-8")
-//	@ResponseBody
-//	public HashMap<String, Object> findRestaurant(@RequestBody HashMap<String, Object> map) {
-//		return adminService.findRestaurant(map);
-//	}
+	
+	@RequestMapping(value = "findRestaurant", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public HashMap<String, Object> findRestaurant(@RequestBody HashMap<String, Object> map) {
+		return adminService.findRestaurant(map);
+	}
 	
 	@RequestMapping(value="managerRegisterProc")
 	public String managerRegisterProc(Model model, ManagerDTO managerDto, String pwOk, String[] phoneStr1, String[] phoneStr2) {
