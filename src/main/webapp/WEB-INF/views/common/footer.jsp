@@ -3,12 +3,14 @@
 <!DOCTYPE html>  
 
 <footer>
-<h2>
-	<a href="home" class="logo"><img src="resources/img/logo/logo2.png" width="200px"></a>
-</h2>
-<div>
-	<p>
- 		Copyright &copy;<script>document.write(new Date().getFullYear());</script>@ HAGO Lab All rights reserved by <a href="home">GETCHA.com</a>
-	</p>
+<div style="text-align:center;">
+	<div>
+		<a href="${root }" class="logo"><img src="resources/img/logo/logo2.png" width="200px"></a>
+	</div>
+	<div>
+		<p>
+	 		Copyright &copy;<script>document.write(new Date().getFullYear());</script>@ HAGO Lab All rights reserved by <a href="${root }">GETCHA.com</a>
+		</p>
+	</div>
 </div>
 </footer>

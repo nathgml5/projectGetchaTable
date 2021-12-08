@@ -5,55 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="resources/css/home/home.css" rel="stylesheet">
 <meta charset="utf-8"/>
 <title>GetchaTable</title>
 <c:if test="${!empty msg }"><script>alert('${msg}');</script></c:if>
 
-<!-- <script>
-$('#sidebar').find('span').text('OPEN');
-</script> --> 
-	<c:import url="/WEB-INF/views/common/nav.jsp" /> 
-	<c:import url="/WEB-INF/views/common/top.jsp" />
-<style type="text/css">
-*{
-  font-family:'GowunDodum-Regular';
-}
-@font-face {
-    font-family: 'GowunDodum-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-    html,body{ margin:0; padding:0; width:100%; height:100%;}
-    #header{ background-color:none; z-index:1; position:fixed;}
-	#sidebar{z-index:3;}
-    a { text-decoration:none underline; color:white;  }
-    a:hover { color: #F2EBC7; }
-    *{
-      transition-duration: 0.8s;
-	}
-	.section {
-	  width: 100%;
-	  height: 100vh;
-	  font-size: 32px; 
-	  text-align: center;
-	  background-color:black;
-	  z-index:-99; 
-	}
-	#search{position: absolute; top:180px; width: 100%;	} 
-	#session1{position: absolute; top:940px; width: 100%;	} 
-	#session2{position: absolute; top:1600px; width: 100%;	} 
-	#session3{position: absolute; top:2300px; width: 100%;	} 
-	.mainSearch{
-		border: none;
-		border-radius: 10px;
-		opacity:0.9;
-		padding:10px;
-		box-shadow: 0px 8px 15px gray;
-	}
-</style>
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
 window.onload = function(){
     const elm = document.querySelectorAll('.section');

@@ -9,41 +9,11 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight:100;
 }
+.container {background-color:white; width: 500px; height:300px; margin-top:200px; vertical-align:center;}
+.form-group{width: 300px; }
 .panel-body {
 	margin-top:150px;
 }
-body{
-  width: 100%;
-
-  background-size: 600% 100%;
-  -webkit-animation: HeroBG 20s ease infinite;
-          animation: HeroBG 20s ease infinite;
-}
-
-@-webkit-keyframes HeroBG {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-@keyframes HeroBG {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
 
 .panel {
   border-radius: 5px;

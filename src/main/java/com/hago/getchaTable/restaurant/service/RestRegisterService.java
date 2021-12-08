@@ -47,7 +47,7 @@ public class RestRegisterService implements IRestRegisterService {
 	}
 	
 	
-	public void restRegisterProc(String[] facilities, String[] openHour, MultipartHttpServletRequest req) {
+	public void restRegisterProc(Model model, String[] facilities, String[] openHour, MultipartHttpServletRequest req)  {
 		int restNum = (Integer)session.getAttribute("restNum");
 		
 		// 멀티파트으로 가져온 식당 정보를 테이블에 저장
@@ -109,21 +109,26 @@ public class RestRegisterService implements IRestRegisterService {
 		
 		// 넘어온 식당 사진들 저장
 		List<MultipartFile> files = req.getFiles("restImage");
-		if(files.size() > 1) {
+		if(!files.isEmpty()) {
 			int i = 1;
 			for(MultipartFile f : files) {
-				RestImageDTO imgDto = new RestImageDTO();
-				if(f.getSize() != 0) {		
-					String realPath = req.getServletContext().getRealPath(FILE_LOCATION_RESTAURANT);
-					String fileName = saveFile(restNum, f, realPath);
-					imgDto.setRestNum(restNum);
-					imgDto.setRestImage(fileName);   
+				String contentType = f.getContentType();
+				if(contentType.contains("image/jpeg") || contentType.contains("image/png") || contentType.contains("image/gif")) {
+					RestImageDTO imgDto = new RestImageDTO();
+					if(f.getSize() != 0) {		
+						String realPath = req.getServletContext().getRealPath(FILE_LOCATION_RESTAURANT);
+						String fileName = saveFile(restNum, f, realPath);
+						imgDto.setRestNum(restNum);
+						imgDto.setRestImage(fileName);   
+					}else {
+						imgDto.setRestImage("파일 없음");
+					}
+					rrDao.addRestImage(imgDto);
+					if(f.getSize() != 0 && i==1) {
+						rrDao.addRepresentImage(imgDto);
+					}					
 				}else {
-					imgDto.setRestImage("파일 없음");
-				}
-				rrDao.addRestImage(imgDto);
-				if(f.getSize() != 0 && i==1) {
-					rrDao.addRepresentImage(imgDto);
+					model.addAttribute("파일 없음");
 				}
 				i++;
 			}
@@ -166,16 +171,19 @@ public class RestRegisterService implements IRestRegisterService {
 	    List<MultipartFile> files2 = req.getFiles("wholeMenu");
 		if(files2.size() > 1) {
 			for(MultipartFile f : files2) {
-				WholeMenuDTO menuDto = new WholeMenuDTO();
-				if(f.getSize() != 0) { 
-					String realPath2 = req.getServletContext().getRealPath(FILE_LOCATION_WHOLEMENU);
-					String fileName2 = saveFile(restNum, f, realPath2);
-					menuDto.setRestNum(restNum);
-				    menuDto.setWholeMenu(fileName2);   
-				}else {
-					menuDto.setWholeMenu("파일 없음");   
+				String contentType = f.getContentType();
+				if(contentType.contains("image/jpeg") || contentType.contains("image/png") || contentType.contains("image/gif")) {
+					WholeMenuDTO menuDto = new WholeMenuDTO();
+					if(f.getSize() != 0) { 
+						String realPath2 = req.getServletContext().getRealPath(FILE_LOCATION_WHOLEMENU);
+						String fileName2 = saveFile(restNum, f, realPath2);
+						menuDto.setRestNum(restNum);
+					    menuDto.setWholeMenu(fileName2);   
+					}else {
+						menuDto.setWholeMenu("파일 없음");   
+					}
+					rrDao.addWholeMenu(menuDto);
 				}
-				rrDao.addWholeMenu(menuDto);
 			}
 		}
 		
@@ -193,4 +201,6 @@ public class RestRegisterService implements IRestRegisterService {
 			return 1;
 		}
 	}
+
+
 }

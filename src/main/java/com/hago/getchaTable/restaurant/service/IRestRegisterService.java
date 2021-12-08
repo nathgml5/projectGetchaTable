@@ -1,5 +1,6 @@
 package com.hago.getchaTable.restaurant.service;
 
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
@@ -13,6 +14,6 @@ public interface IRestRegisterService {
 	String FILE_LOCATION_MENU = "/upload/menu/";
 	String FILE_LOCATION_WHOLEMENU = "/upload/wholeMenu/";
 	
-	public void restRegisterProc(String[] facilities, String[] openHour, MultipartHttpServletRequest req);
+	public void restRegisterProc(Model model, String[] facilities, String[] openHour, MultipartHttpServletRequest req);
 	public void menuRegisterProc(MultipartHttpServletRequest req);
 }

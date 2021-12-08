@@ -31,8 +31,8 @@ public class RestaurantController {
 	}
 
 	@RequestMapping(value="restRegisterProc")
-	public String restRegisterProc(MultipartHttpServletRequest req, String[] facilities, String[] openHour) {
-		rrService.restRegisterProc(facilities, openHour, req);
+	public String restRegisterProc(Model model, MultipartHttpServletRequest req, String[] facilities, String[] openHour) {
+		rrService.restRegisterProc(model, facilities, openHour, req);
 		return "forward:indexPath?formpath=menuRegister";
 	}
 	

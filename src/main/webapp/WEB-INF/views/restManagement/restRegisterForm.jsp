@@ -116,43 +116,43 @@
 			<tr>
 				<td> 부대시설 </td>
 				<td>
-				<div style="display:inline; float:left; margin:5px;">
+				<div class="facilityIcon">
 					<input type="checkbox" id="parking" name="facilities" value="주차 가능" >
-					<label for="parking"><img src="resources/img/icon/ic_parking.svg" width="40"><br>주차 가능</label>
+					<label for="parking" ><img src="resources/img/icon/ic_parking.svg" width="40"  style="margin:auto;"><br>주차 가능</label>
 				</div>
-				<div style="display:inline; float:left; margin:5px;">
+				<div class="facilityIcon" >
 					<input type="checkbox" id="valet" name="facilities" value="발렛 가능" >
 					<label for="valet"><img src="resources/img/icon/ic_valet_parking.svg" width="40"><br>발렛 가능</label>
 				</div>
-				<div style="display:inline; float:left;  margin:5px;">	
+				<div class="facilityIcon">	
 					<input type="checkbox" id="group" name="facilities" value="단체석">
 					<label for="group"><img src="resources/img/icon/ic_group_seat.svg" width="40"><br>단체석</label>
 				</div>
-				<div style="display:inline; float:left;  margin:5px;">
+				<div class="facilityIcon">
 					<input type="checkbox" id="baby" name="facilities" value="아기의자">
 					<label for="baby"><img src="resources/img/icon/ic_baby_seat.svg" width="40"><br>아기의자</label>
 				</div>
-				<div style="display:inline; float:left;  margin:5px;">
+				<div class="facilityIcon">
 					<input type="checkbox" id="corkage" name="facilities" value="콜키지 가능">
 					<label for="corkage"><img src="resources/img/icon/ic_corkage.svg" width="40"><br>콜키지 가능</label>
 				</div>
-				<div style="display:inline; float:left;  margin:5px;">
+				<div class="facilityIcon" >
 					<input type="checkbox" id="room" name="facilities" value="개별 룸">
 					<label for="room"><img src="resources/img/icon/ic_room.svg" width="40"><br>개별 룸</label>
 				</div>
-				<div style="display:inline; float:left;  margin:5px;">
+				<div class="facilityIcon" >
 					<input type="checkbox" id="sommelier" name="facilities" value="전문 소믈리에">
 					<label for="sommelier"><img src="resources/img/icon/ic_sommelier.svg" width="40"><br>전문 소믈리에</label>
 				</div>
-				<div style="display:inline; float:left;  margin:5px;">
+				<div class="facilityIcon" >
 					<input type="checkbox" id="rent" name="facilities" value="대관 가능">
 					<label for="rent"><img src="resources/img/icon/ic_rent.svg" width="40"><br>대관 가능</label>
 				</div>
-				<div style="display:inline; float:left; margin:5px;">
+				<div class="facilityIcon">
 					<input type="checkbox" id="nokids" name="facilities" value="노키즈존">
 					<label for="nokids"><img src="resources/img/icon/ic_nokids.svg" width="40"><br>노키즈존</label>
 				</div>
-				<div style="display:inline; float:left; margin:5px;">
+				<div class="facilityIcon" >
 					<input type="checkbox" id="late" name="facilities" value="심야 영업">
 					<label for="late"><img src="resources/img/icon/ic_late_sales.svg" width="40"><br>심야 영업</label>
 				</div>

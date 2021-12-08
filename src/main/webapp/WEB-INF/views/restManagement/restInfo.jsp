@@ -509,7 +509,7 @@ img {vertical-align: middle;}
 			<br>
 			<table border="1" id="registerTable" style="width:100%">
 				<tr id="trMenu">
-					<th style="width:100px">분류</th><th style="width:150px">메뉴명</th><th style="width:200px">메뉴 소개</th><th style="width:100px">가격</th><th>메뉴 이미지</th><th></th>
+					<th style="width:100px">분류</th><th style="width:150px">메뉴명</th><th style="width:100px">가격</th><th>메뉴 이미지</th><th></th>
 				</tr>
 				<c:if test="${fn:length(menuList) != 0 }">
 			 	<c:forEach var="i" begin="0" end="${fn:length(menuList)-1}">

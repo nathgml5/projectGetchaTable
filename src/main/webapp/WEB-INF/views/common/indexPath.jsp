@@ -20,7 +20,7 @@
 	</c:choose>
 <body>
 	<div class="wrap">
-		<div id="formpath" style="margin-left:240px;"><c:import url="/${formpath }" /> </div>
+		<div id="formpath" style="margin-left:30%;"><c:import url="/${formpath }" /> </div>
 		<c:import url="footer.jsp" />
 	</div>
 </body>

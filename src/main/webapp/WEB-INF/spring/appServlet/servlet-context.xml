@@ -20,7 +20,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	
 	<!-- 파일을 서버 /upload/에 저장	 -->
-	<resources mapping="/upload/restaurant/**" location="/upload/restaurant/" />
+	<resources mapping="/upload/**" location="/upload/" />
 
 	<!-- 관리자 로그인 시 properties 파일 사용 -->
 	<util:properties id="prop" location="classpath:properties/adminAccount.properties"/>

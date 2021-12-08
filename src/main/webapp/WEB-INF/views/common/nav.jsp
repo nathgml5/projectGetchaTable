@@ -6,7 +6,7 @@
 margin-right:60px;}
 	/* #wrap{width:100%; height:100px; background:white;} */
 	#sidebar{background:black; width:250px; height:100%; top:0; 
-		left:-250px; position:fixed; font-size:14px; z-index:1;}
+		left:-250px; position:fixed; font-size:14px; z-index:6;}
 	#sidebar>button{background:#333; position:absolute; top:155px; left:250px; width:57px; height:52px; border:none; color:#FCF3E4;}
 
 
@@ -95,7 +95,7 @@ $('document').ready(function(){
 </script>
 <aside id="sidebar">
 		<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width:250px;height:100%;background-color:black;">
-	    <a href="${root }home" id="main-img" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+	    <a href="/" id="main-img" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 	      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
 	      <img class="fs-4" src="resources/img/logo/logo.png" width="120">
 	    </a>

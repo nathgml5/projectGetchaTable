@@ -17,7 +17,7 @@ public class HomeController {
 	@Autowired HttpSession session;
 	@RequestMapping(value = "/")
 	public String home() {
-		return "home";
+		return "forward:mainPath?formpath=home";
 	}
 	
 	@RequestMapping(value = "/home")

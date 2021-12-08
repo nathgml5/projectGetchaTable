@@ -19,10 +19,11 @@ $(window).scroll(function(){
     lastScrollTop = scrollTop;
 });
 </script>
+<c:url var="root" value="/" />
 <header id="header" class="scroll">
 	<div class="rows">
 		<div class="coll-logo">
-			<a href="home"><img src="resources/img/logo/logo4.png" width="40px"></a>
+			<a href="${root }"><img src="resources/img/logo/logo4.png" width="40px"></a>
 		</div>
 		<div id="top">
 		<c:choose>
@@ -42,7 +43,8 @@ $(window).scroll(function(){
 			
 			</c:when>
 			<c:when test="${not empty sessionScope.adminId && sessionScope.adminId == 'admin' }">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:black">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" 
+					data-bs-toggle="dropdown" aria-expanded="false" style="background-color:black; margin:10px;">
 			  	웹 관리자
 			  	</button>
 			  	<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -50,7 +52,8 @@ $(window).scroll(function(){
 			   	</ul>
 			</c:when>
 			<c:when test="${not empty sessionScope.adminId && sessionScope.adminId != 'admin' }">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:black">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" 
+					data-bs-toggle="dropdown" aria-expanded="false" style="background-color:black; margin:10px;">
 			  	${sessionScope.adminId } 관리자
 			  	</button>
 			  	<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.hago.getcha.restManagement.dao.IRestRegisterDAO">
+<mapper namespace="com.hago.getchaTable.restaurant.dao.IRestRegisterDAO">
 	<update id="addRestaurant" parameterType="com.hago.getchaTable.restaurant.dto.RestaurantDTO">
 		UPDATE restaurant SET restname=#{restName}, restintro=#{restIntro}, avgpoint='0', zipcode=#{zipcode}, 
 		address=#{address}, dong=#{dong}, type=#{type}, capacity=#{capacity}, promotion=#{promotion}, registerDate=sysdate 

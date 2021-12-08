@@ -22,9 +22,9 @@ public class AdminController {
 	public String adminLoginForm(Model model) {
 		String check = adminService.checkSession(model);
 		if(check.equals("admin")) {
-			return "forward:indexPath?formpath=managerList";
+			return "forward:managerListProc";
 		}else if(check.equals("restManager")) {
-			return "forward:indexPath?formpath=restMain";
+			return "forward:restMainProc";
 		}else {
 			return "forward:mainPath?formpath=adminLogin";
 		}
@@ -45,7 +45,7 @@ public class AdminController {
 	@RequestMapping(value="adminLogoutProc")
 	public String adminLogoutProc(Model model) {
 		adminService.adminLogoutProc(model);
-		return "redirect:home";
+		return "redirect:/";
 	}
 
 	@RequestMapping(value="managerListProc")
