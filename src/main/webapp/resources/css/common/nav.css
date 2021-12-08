@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+#fs-4{
+margin-right:60px;}
+	/* #wrap{width:100%; height:100px; background:white;} */
+	#sidebar{background:black; width:250px; height:100%; top:0; 
+		left:-250px; position:fixed; font-size:14px; z-index:6;}
+	#sidebar>button{background:#333; position:absolute; top:155px; left:250px; width:57px; height:52px; border:none; color:#FCF3E4;}
+
+
+/* Style the sidenav links and the dropdown button */
+.dropdown-container a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  color: white;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+.dropdown-container a{
+	color: #BFBFBF;
+}
+
+/* On mouse-over */
+.dropdown-container a:hover{
+	color:white;
+} 
+.dropdown-btn:hover, .nav-link text-white:hover{
+  color:#BFBFBF;
+}
+
+
+/* Main content */
+.main {
+  margin-left: 250px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: #B0978D;
+  color: #FCF3E4;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: none; 
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+#mySearch {
+  width: 100%;
+  height:40px;
+  font-size: 14px;
+  padding: 11px;
+  border: 1px solid #ddd;
+}

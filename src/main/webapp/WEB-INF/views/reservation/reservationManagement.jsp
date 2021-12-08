@@ -38,7 +38,7 @@
 </script>
 
 </head>
-<body style="display:flex;">
+<body >
 	
 	<script>
 		//내비에 선택된 탭 색깔 변경

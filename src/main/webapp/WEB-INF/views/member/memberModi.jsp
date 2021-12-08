@@ -2,23 +2,7 @@
 <%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="resources/css/member/member.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-<c:if test="${empty sessionScope.email }">
-	<script>
-		alert("로그인 후 이용 가능합니다.");
-		location.href='index?formpath=login'
-	</script>
-</c:if>
-<c:if test="${not empty msg }">
-	<script>
-		var message="${msg}";
-		alert(message);
-	</script>
-</c:if>
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
 <html>
 <style>
 .container{margin:50px;}
@@ -40,15 +24,27 @@ width:280px;
 height:65px;
 }
 </style>
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="resources/css/member/member.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+<c:if test="${empty sessionScope.email }">
+	<script>
+		alert("로그인 후 이용 가능합니다.");
+		location.href='index?formpath=login'
+	</script>
+</c:if>
+<c:if test="${not empty msg }">
+	<script>
+		var message="${msg}";
+		alert(message);
+	</script>
+</c:if>
 <body>
 <c:if test="${!empty msg }"><script>alert('${msg}');</script></c:if>
 <div class="container">
    <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3" style="margin-left:0px;">
       <div class="panel panel-login">
         <div class="panel-body">
           <div class="row">

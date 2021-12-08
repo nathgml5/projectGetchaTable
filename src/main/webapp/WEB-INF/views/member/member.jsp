@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="resources/css/member/member.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 
 <script>
@@ -103,7 +101,7 @@ function memberSubmit(){
 <c:if test="${!empty msg }"><script>alert('${msg}');</script></c:if>
 <div class="container">
    <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3" style="margin-left:150px;">
       <div class="panel panel-login">
         <div class="panel-body">
           <div class="row">
@@ -176,12 +174,6 @@ function memberSubmit(){
   </div>
 </div>
 
-<footer>
-    <div class="container">
-        <div class="col-md-10 col-md-offset-1 text-center">
-        </div>
-    </div>
-</footer>
 <script>
 	/* 로그인 버튼 클릭 메서드 */
 	$(".login_button").click(function(){

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hago.getchaTable.collection.dao.ICollectionDAO">
+	<insert id="collectProc" parameterType="com.hago.getchaTable.collection.dto.CollectDTO">
+		INSERT INTO collection VALUES(#{email}, #{restNum})
+	</insert>
+	
+	<select id="collChck" parameterType="com.hago.getchaTable.collection.dto.CollectDTO" resultType="int">
+		SELECT count(*) FROM collection WHERE email = #{email} AND restNum = #{restNum}
+	</select>
+	
+	<select id="collCount" resultType="int">
+		SELECT count(*) FROM collection WHERE restNum = #{restNum}
+	</select>
+	
+	<select id="myCollectProc" resultType="com.hago.getchaTable.collection.dto.AllCollectDTO">
+		SELECT collection.* , restaurant.restname, restaurant.avgpoint, restaurant.type, restaurant.dong, restaurant.representimage 
+		FROM collection, restaurant 
+		WHERE collection.restnum = restaurant.restnum (+)
+		AND collection.email = #{email}
+	</select>
+	
+	<delete id="delCollect" parameterType="com.hago.getchaTable.collection.dto.CollectDTO">
+		DELETE FROM collection WHERE email = #{email} AND restNum = #{restNum}
+	</delete>
+</mapper>

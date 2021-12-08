@@ -46,7 +46,7 @@ public class HomeController {
 	@RequestMapping(value="/restIndex")
 	public String restIndex(Model model, @RequestParam String formpath) {
 		model.addAttribute("formpath", formpath);
-		return "restManagement/restIndex";
+		return "restaurant/restIndex";
 	}
 
 	
@@ -86,22 +86,22 @@ public class HomeController {
 	
 	@RequestMapping(value="restMain")
 	public String restMain() {
-		return "restManagement/restMain";
+		return "restaurant/restMain";
 	}
 	
 	@RequestMapping(value="restRegister")
 	public String restRegister() {
-		return "restManagement/restRegisterForm";
+		return "restaurant/restRegisterForm";
 	}
 	
 	@RequestMapping(value="menuRegister")
 	public String menuRegister() {
-		return "restManagement/menuRegisterForm";
+		return "restaurant/menuRegisterForm";
 	}
 
 	@RequestMapping(value="restInfo")
 	public String restInfo() {
-		return "restManagement/restInfo";
+		return "restaurant/restInfo";
 	}
 	
 	@RequestMapping(value="/write")
@@ -153,12 +153,12 @@ public class HomeController {
 	
 	@RequestMapping("/restList")
 	public String restList() {
-		return "restaurant/restList";
+		return "searchRestaurant/restList";
 	}
 	
 	@RequestMapping(value="/restView")
 	public String restView() {
-		return "restaurant/restView";
+		return "searchRestaurant/restView";
 	}
 	
 	@RequestMapping(value = "/myCollection")

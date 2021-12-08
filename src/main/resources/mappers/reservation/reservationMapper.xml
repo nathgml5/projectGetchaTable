@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hago.getchaTable.reservation.dao.IReservationDAO">
+	<resultMap type="com.hago.getchaTable.reservation.dto.ReservationDTO" id="getTime">
+		<!-- <result property="restNum" column="restNum"/> -->
+		<result property="week" column="weekselection"/>
+		<result property="hours" column="hours"/>
+	</resultMap>
+	<select id="getTime" resultMap="getTime" parameterType="int">
+		SELECT * FROM openhour WHERE restNum=#{restNum}
+	</select>
+	
+	<resultMap type="com.hago.getchaTable.reservation.dto.ReservationDTO" id="getInfo">
+		<result property="restName" column="restName"/>
+		<result property="capacity" column="capacity"/>
+	</resultMap>
+	<select id="getInfo" resultMap="getInfo" parameterType="int">
+		SELECT * FROM Restaurant WHERE restNum=#{restNum}
+	</select>
+	
+	<resultMap type="com.hago.getchaTable.reservation.dto.ReservationDTO" id="getresList">
+		<result property="resNum" column="resNum"/>
+		<result property="email" column="email"/>
+		<result property="resDay" column="resDay"/>
+		<result property="hours" column="hours"/>
+		<result property="capacity" column="capacity"/>
+		<result property="status" column="status"/>
+	</resultMap>
+	<select id="getresList" resultMap="getresList" parameterType="int">
+		SELECT * FROM getchares WHERE restNum=#{restNum}
+	</select>
+	
+	<insert id="reservationProc" parameterType="com.hago.getchaTable.reservation.dto.ReservationDTO">
+		<selectKey keyProperty="resNum" resultType="int" order="BEFORE">
+			SELECT nvl(max(resNum),0)+1 FROM getchares
+		</selectKey>
+		INSERT INTO getchares VALUES(#{restNum},#{resNum},#{orderNum},#{email},#{restName},#{resDay},#{hours},#{capacity},#{status})
+	</insert>
+	
+	<resultMap type="com.hago.getchaTable.reservation.dto.ReservationDTO" id="resView">
+		<result property="resNum" column="resNum"/>
+		<result property="restName" column="restName"/>
+		<result property="resDay" column="resDay"/>
+		<result property="status" column="status"/>
+	</resultMap>
+	<select id="reservationView" resultMap="resView" parameterType="String">
+		SELECT * FROM getchares WHERE email=#{email} order by resDay
+	</select>
+	
+	<resultMap type="com.hago.getchaTable.member.dto.MemberDTO" id="userinfo">
+		<result property="email" column="email"/>
+		<result property="pw" column="pw"/>
+		<result property="nickname" column="nickname"/>
+		<result property="birth" column="birth"/>
+		<result property="gender" column="gender"/>
+	</resultMap>
+	<select id="userinfo" resultMap="userinfo" parameterType="String">
+		SELECT nickname FROM getchamember WHERE email=#{email}
+	</select>
+	
+	<select id="deleteView" resultType="com.hago.getchaTable.reservation.dto.ReservationDTO">
+		SELECT * FROM getchares WHERE resNum=#{resNum}
+	</select>
+	
+	<delete id="resDeleteProc" parameterType="int">
+		update getchares set status='예약취소' where resnum=#{resNum}
+	</delete>
+	
+	<update id="statusChange" parameterType="String">
+		<![CDATA[UPDATE GETCHARES SET status='노쇼' WHERE STATUS='예약확인' AND RESDAY < #{date}]]>
+	</update>
+</mapper>

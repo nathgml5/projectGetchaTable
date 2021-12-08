@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hago.getchaTable.searchRestaurant.dao.IRestListDAO">
+	<resultMap type="com.hago.getchaTable.restaurant.dto.RestaurantDTO" id="restaurant">
+		<result property="restNum" column="restNum"/>
+		<result property="restName" column="restName"/>
+		<result property="restIntro" column="restIntro"/>
+		<result property="avgPoint" column="avgPoint"/>
+		<result property="address" column="address"/>
+		<result property="dong" column="dong"/>
+		<result property="type" column="type"/>
+		<result property="capacity" column="capacity"/>
+		<result property="promotion" column="promotion"/>
+		<result property="representImage" column="representImage"/>
+		<result property="registerDate" column="registerDate"/>
+	</resultMap>
+
+	<select id="restTypeList"  resultMap="restaurant" parameterType="String">
+		select * from restaurant where type=#{type} order by avgpoint desc
+	</select>
+
+	<select id="restTypeEtcList"  resultMap="restaurant" parameterType="String">
+		select * from restaurant where type!='한식' AND type!='프랑스음식'AND type!='이탈리아음식' AND type!='일식' order by avgpoint desc
+	</select>
+	
+	<select id="restLocationList"  resultMap="restaurant" parameterType="String">
+		select * from restaurant where dong=#{type} order by avgpoint desc 
+	</select>
+	
+	<select id="restLocationEtcList"  resultMap="restaurant" parameterType="String">
+		select * from restaurant where dong!='신사동' AND dong!='한남동'AND dong!='여의도동' AND dong!='청담동' order by avgpoint desc 
+	</select>
+	
+	
+	<resultMap type="com.hago.getchaTable.restaurant.dto.MenuDTO" id="menu">
+		<result property="restNum" column="restNum"/>
+		<result property="category" column="category"/>
+		<result property="menuName" column="menuName"/>
+		<result property="unitPrice" column="unitPrice"/>
+		<result property="menuImage" column="menuImage"/>
+	</resultMap>
+	<select id="selectPriceList" resultMap="menu">
+		<if test="param1!=param2">
+			select restnum, ROUND(avg(unitPrice),-3) AS unitPrice from specialmenu group by restnum having<![CDATA[ avg(unitPrice)>=#{param1}]]> AND <![CDATA[avg(unitPrice)<#{param2}]]> 
+		</if>
+		<if test="param1==param2">
+			select restnum, ROUND(avg(unitPrice),-3) AS unitPrice from specialmenu group by restnum having<![CDATA[ avg(unitPrice)>=#{param1}]]> 
+		</if>
+	</select>
+	
+	<resultMap type="com.hago.getchaTable.admin.dto.AdditionDTO" id="guide">
+		<result property="restNum" column="restNum"/>
+		<result property="magazine" column="magazine"/>
+		<result property="guideBook" column="guidebook"/>
+	</resultMap>
+	<select id="guideBookShowList" resultMap="guide" parameterType="String">
+		select * from additionInfo where guidebook=#{guideBook}
+	</select>
+
+	<resultMap type="com.hago.getchaTable.review.dto.ReviewCountDTO" id="count">
+		<result property="restNum" column="restNum"/>
+		<result property="count" column="count"/>
+	</resultMap>
+	<select id="reviewCountProc" resultMap="count" >
+		select restnum, count(restnum) as count from rest_review group by restnum order by count(restnum) desc
+	</select>
+	<select id="restReviewCountProc" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		select count(restnum) as count from rest_review where restnum=#{restNum}
+	</select>
+	
+</mapper>

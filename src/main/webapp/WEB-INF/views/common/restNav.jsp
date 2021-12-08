@@ -18,7 +18,6 @@
       </li>
       <li>
         <a href="restInfoProc" id="restInfoTab" class="nav-link link-dark">
-          
           식당 정보 상세보기
         </a>
       </li>

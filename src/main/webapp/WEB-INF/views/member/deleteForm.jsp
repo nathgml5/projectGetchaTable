@@ -1,8 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url var="root" value="/"/>
 <c:if test="${empty sessionScope.email }">
 	<script>
-		location.href="index?formpath=main";
+		location.href="${root}";
 	</script>
 </c:if>
 <style>
@@ -25,7 +26,7 @@
 <c:if test="${!empty msg }"><script>alert('${msg}');</script></c:if>
 <div class="container">
    <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3" style="margin-left:0px;">
       <div class="panel panel-login">
         <div class="panel-body">
           <div class="row">

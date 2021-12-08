@@ -15,7 +15,7 @@
 <c:if test="${!empty msg }"><script>alert('${msg}');</script></c:if>
 <div class="container">
    <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3" style="margin-left:150px;">
       <div class="panel panel-login">
         <div class="panel-body">
           <div class="row">

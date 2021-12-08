@@ -4,23 +4,12 @@
 
 
 <html>
-<style>
-.login{
-width:263px;
-height: 59;
 
-
-}
-.register{
-
-height:65px;
-}
-</style>
 <script  src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="resources/css/member/login.css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"> -->
+<link rel="stylesheet" href="resources/css/member/member.css">
 <!------ Include the above in your HEAD tag ---------->
 <script>
 	$('#register-form-link').click(function(e) {
@@ -43,7 +32,7 @@ function loginSubmit(){
 <form id="login-form" action="loginProc" method="post" role="form" style="display: block;">
 <div class="container" style="padding-top:50px;">
    <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3" style="margin-left:150px;">
       <div class="panel panel-login">
 		        <div class="panel-body">
 		          <div class="row">
@@ -71,7 +60,7 @@ function loginSubmit(){
 		              <button type="button" class="active" id="login-form-link" onclick="loginSubmit()"><div class="login">로그인</div></button>
 		            </div>
 		            <div class="col-xs-6 tabs">
-		              <a href="index?formpath=member" ><div class="register">회원가입</div></a>
+		              <a href="indexPath?formpath=member" ><div class="register">회원가입</div></a>
 		           
 		            </div>
 		          </div>

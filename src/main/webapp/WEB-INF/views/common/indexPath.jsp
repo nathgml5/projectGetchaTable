@@ -13,6 +13,7 @@
 			<c:import url="restNav.jsp" />
 		</c:when>
 		<c:when test="${not empty sessionScope.email }">
+			<c:import url="memberNav.jsp" />
 		</c:when>
 		<c:otherwise>
 			<c:import url="nav.jsp" />
@@ -20,7 +21,7 @@
 	</c:choose>
 <body>
 	<div class="wrap">
-		<div id="formpath" style="margin-left:30%;"><c:import url="/${formpath }" /> </div>
+		<div id="formpath" style="margin-left:20%;"><c:import url="/${formpath }" /> </div>
 		<c:import url="footer.jsp" />
 	</div>
 </body>

@@ -3,7 +3,7 @@
 <c:if test="${empty sessionScope.email}">
 	<script>
 		alert("로그인 후 이용해주세요.");
-		location.href="index?formpath=login";
+		location.href="indexPath?formpath=login";
 	</script>
 </c:if>
 <c:url var="root" value="/"/>
@@ -38,7 +38,17 @@
 				<span class="content" style="width:250px; height:40px;"><b>${reservationView.resDay} / ${reservationView.hours }</b></span>
 			</div>
 			<div class="part">
-				<span class="content" style="width:250px; height:40px;"><b>${reservationView.status}</b></span>
+				<c:choose>
+					<c:when test="${reservationView.status eq '예약취소' || reservationView.status eq '노쇼'  }">
+						<span class="content" style="color:red; width:250px; height:40px;"><b>${reservationView.status}</b></span>
+					</c:when>
+					<c:when test="${reservationView.status eq '방문완료'}">
+						<span class="content" style="color:green; width:250px; height:40px;"><b>${reservationView.status}</b></span>
+					</c:when>
+					<c:otherwise>
+						<span class="content" style="width:250px; height:40px;"><b>${reservationView.status}</b></span>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		
 			<div class="button">

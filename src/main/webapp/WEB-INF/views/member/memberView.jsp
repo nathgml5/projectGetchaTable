@@ -8,21 +8,19 @@
 <c:if test="${empty sessionScope.email }">
 	<script type="text/javascript">
 		alert('로그인 후 이용해주세요.');
-		location.href="index?formpath=login";
+		location.href="indexPath?formpath=login";
 	</script>
 </c:if>
 <c:url var="root" value="/"/>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="resources/css/member/member.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
 <body>
 <c:if test="${!empty msg }"><script>alert('${msg}');</script></c:if>
 <div class="container">
    <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3" style="margin-left:200px;">
       <div class="panel panel-login">
         <div class="panel-body">
           <div class="row">
@@ -59,8 +57,8 @@
 				</div>
 				<div class="btn_set">
 				<input type="button" style="width:60px;" value="수정" class="btn_btn" onclick="location.href='${root}memberModiView'"/>
-				<input type="button" style="width:60px;" value="홈" class="btn_btn" onclick="location.href='${root}main'"/>
-				<input type="button" style="width:60px;" value="탈퇴" class="btn_btn" onclick="location.href='${root}index?formpath=deleteForm'"/>
+				<input type="button" style="width:60px;" value="홈" class="btn_btn" onclick="location.href='${root}'"/>
+				<input type="button" style="width:60px;" value="탈퇴" class="btn_btn" onclick="location.href='${root}indexPath?formpath=deleteForm'"/>
 				</div>
 				</form>
             </div>
